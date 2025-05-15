@@ -85,7 +85,7 @@ function showWord(text) {
   hideTimeout = setTimeout(() => {
     wordDisplay.textContent = "";
     wordDisplay.classList.remove("show");
-  }, 5000);
+  }, 2500);
 }
 
 getWordBtn.addEventListener("click", () => {
