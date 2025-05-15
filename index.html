@@ -9,8 +9,14 @@
 <body>
   <div class="container">
     <h1>Игра "Шпион"</h1>
-    <button id="getWordBtn">Моё слово</button>
-    <div id="wordDisplay" class="word-display">Нажмите на кнопку</div>
+    
+    <label for="playerCount">Количество игроков:</label>
+    <input type="number" id="playerCount" min="3" max="20" value="3" />
+    
+    <button id="startGameBtn">Начать игру</button>
+    <button id="getWordBtn" disabled>Моё слово</button>
+    
+    <div id="wordDisplay" class="word-display"></div>
   </div>
 
   <script src="script.js"></script>

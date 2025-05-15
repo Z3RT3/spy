@@ -1,108 +1,110 @@
-// Тематики с обычным и шпионским словом
 const allThemes = [
-    { category: "Головные уборы", normal: "шапка", spy: "кепка" },
-    { category: "Фрукты", normal: "яблоко", spy: "груша" },
-    { category: "Транспорт", normal: "машина", spy: "мотоцикл" },
-    { category: "Обувь", normal: "кроссовки", spy: "ботинки" },
-    { category: "Одежда", normal: "куртка", spy: "пальто" },
-    { category: "Животные", normal: "кошка", spy: "собака" },
-    { category: "Напитки", normal: "чай", spy: "кофе" },
-    { category: "Овощи", normal: "морковь", spy: "свёкла" },
-    { category: "Мебель", normal: "стол", spy: "стул" },
-    { category: "Бытовая техника", normal: "телевизор", spy: "радио" },
-    { category: "Спорт", normal: "футбол", spy: "баскетбол" },
-    { category: "Музыкальные инструменты", normal: "гитара", spy: "скрипка" },
-    { category: "Море", normal: "корабль", spy: "подлодка" },
-    { category: "Природа", normal: "лес", spy: "парк" },
-    { category: "Космос", normal: "ракета", spy: "спутник" },
-    { category: "Цветы", normal: "роза", spy: "тюльпан" },
-    { category: "Канцелярия", normal: "ручка", spy: "карандаш" },
-    { category: "Школа", normal: "доска", spy: "парта" },
-    { category: "Профессии", normal: "врач", spy: "медсестра" },
-    { category: "Интернет", normal: "браузер", spy: "сайт" },
-    { category: "Ягоды", normal: "клубника", spy: "малина" },
-    { category: "Птицы", normal: "воробей", spy: "синица" },
-    { category: "Дом", normal: "кухня", spy: "ванная" },
-    { category: "Техника", normal: "смартфон", spy: "планшет" },
-    { category: "Города", normal: "Москва", spy: "Питер" },
-    { category: "Кино", normal: "актёр", spy: "режиссёр" },
-    { category: "Игры", normal: "шахматы", spy: "шашки" },
-    { category: "Звёзды", normal: "Солнце", spy: "Полярная" },
-    { category: "Рыбы", normal: "карп", spy: "щука" },
-    { category: "Горы", normal: "Эверест", spy: "Килиманджаро" },
-    { category: "Языки", normal: "русский", spy: "украинский" },
-    { category: "Офис", normal: "принтер", spy: "сканер" },
-    { category: "Инструменты", normal: "молоток", spy: "отвёртка" },
-    { category: "Еда", normal: "пицца", spy: "бургер" },
-    { category: "Звуки", normal: "гудок", spy: "сирена" },
-    { category: "Кухня", normal: "кастрюля", spy: "сковорода" },
-    { category: "Игрушки", normal: "мяч", spy: "кукла" },
-    { category: "Лес", normal: "берёза", spy: "сосна" },
-    { category: "Интерьер", normal: "картина", spy: "зеркало" },
-    { category: "Инструменты", normal: "пила", spy: "топор" },
-    { category: "Погода", normal: "снег", spy: "дождь" },
-    { category: "Медицина", normal: "таблетка", spy: "укол" },
-    { category: "Обувь", normal: "сандалии", spy: "туфли" },
-    { category: "Вода", normal: "речка", spy: "озеро" },
-    { category: "Машины", normal: "седан", spy: "внедорожник" },
-    { category: "Природа", normal: "гора", spy: "холм" },
-    { category: "Здание", normal: "больница", spy: "школа" },
-    { category: "Блюда", normal: "борщ", spy: "суп" },
-    // ... (можно добавить ещё, если нужно)
-  ];
-  
-  let availableThemes = [...allThemes];
-  let words = [];
-  let currentIndex = 0;
-  
-  const wordDisplay = document.getElementById("wordDisplay");
-  
-  function prepareWords() {
-    if (availableThemes.length === 0) {
-      availableThemes = [...allThemes]; // Сброс при исчерпании
-    }
-  
-    const randomIndex = Math.floor(Math.random() * availableThemes.length);
-    const theme = availableThemes.splice(randomIndex, 1)[0]; // Удаляем использованную тему
-  
-    words = [theme.normal, theme.normal, theme.spy];
-  
-    // Перемешиваем
-    for (let i = words.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [words[i], words[j]] = [words[j], words[i]];
-    }
-  }
-  
-  let hideTimeout = null;
+  { normal: "яблоко", spy: "груша" },
+  { normal: "шапка", spy: "кепка" },
+  { normal: "машина", spy: "мотоцикл" },
+  { normal: "куртка", spy: "пальто" },
+  { normal: "кроссовки", spy: "ботинки" },
+  { normal: "кошка", spy: "собака" },
+  { normal: "чай", spy: "кофе" },
+  { normal: "морковь", spy: "свёкла" },
+  { normal: "стол", spy: "стул" },
+  { normal: "телевизор", spy: "радио" },
+  { normal: "футбол", spy: "баскетбол" },
+  { normal: "гитара", spy: "скрипка" },
+  { normal: "корабль", spy: "подлодка" },
+  { normal: "лес", spy: "парк" },
+  { normal: "ракета", spy: "спутник" },
+  { normal: "роза", spy: "тюльпан" },
+  { normal: "ручка", spy: "карандаш" },
+  { normal: "доска", spy: "парта" },
+  { normal: "врач", spy: "медсестра" },
+  { normal: "браузер", spy: "сайт" },
+  { normal: "клубника", spy: "малина" },
+  { normal: "воробей", spy: "синица" },
+  { normal: "кухня", spy: "ванная" },
+  { normal: "смартфон", spy: "планшет" },
+  { normal: "актёр", spy: "режиссёр" },
+  { normal: "шахматы", spy: "шашки" },
+  { normal: "карп", spy: "щука" },
+  { normal: "берёза", spy: "сосна" },
+  { normal: "молоток", spy: "отвёртка" },
+  { normal: "пицца", spy: "бургер" },
+  { normal: "гудок", spy: "сирена" },
+  { normal: "кастрюля", spy: "сковорода" },
+  { normal: "мяч", spy: "кукла" },
+  { normal: "картина", spy: "зеркало" },
+  { normal: "пила", spy: "топор" },
+  { normal: "снег", spy: "дождь" },
+  { normal: "таблетка", spy: "укол" },
+  { normal: "сандалии", spy: "туфли" },
+  { normal: "речка", spy: "озеро" },
+  { normal: "седан", spy: "внедорожник" },
+  { normal: "гора", spy: "холм" },
+  { normal: "больница", spy: "школа" },
+  { normal: "борщ", spy: "суп" },
+];
 
-  function showWord(text) {
-    // Сброс предыдущей анимации и таймера
-    clearTimeout(hideTimeout);
-    wordDisplay.classList.remove("show");
-    void wordDisplay.offsetWidth;
-  
-    // Установка текста и запуск анимации
-    wordDisplay.textContent = text;
-    wordDisplay.classList.add("show");
-  
-    // Очистка через 5 секунд
-    hideTimeout = setTimeout(() => {
-      wordDisplay.textContent = "";
-      wordDisplay.classList.remove("show");
-    }, 2500);
+let availableThemes = [...allThemes];
+let playerWords = [];
+let currentPlayer = 0;
+let totalPlayers = 3;
+let hideTimeout = null;
+
+const wordDisplay = document.getElementById("wordDisplay");
+const getWordBtn = document.getElementById("getWordBtn");
+const startGameBtn = document.getElementById("startGameBtn");
+const playerCountInput = document.getElementById("playerCount");
+
+function prepareRound() {
+  if (availableThemes.length === 0) {
+    availableThemes = [...allThemes];
   }
-  
-  document.getElementById("getWordBtn").addEventListener("click", () => {
-    if (currentIndex === 0) {
-      prepareWords();
+
+  const index = Math.floor(Math.random() * availableThemes.length);
+  const theme = availableThemes.splice(index, 1)[0];
+
+  const spyIndex = Math.floor(Math.random() * totalPlayers);
+  playerWords = [];
+
+  for (let i = 0; i < totalPlayers; i++) {
+    playerWords.push(i === spyIndex ? theme.spy : theme.normal);
+  }
+
+  currentPlayer = 0;
+  getWordBtn.disabled = false;
+}
+
+function showWord(text) {
+  clearTimeout(hideTimeout);
+  wordDisplay.classList.remove("show");
+  void wordDisplay.offsetWidth;
+
+  wordDisplay.textContent = text;
+  wordDisplay.classList.add("show");
+
+  hideTimeout = setTimeout(() => {
+    wordDisplay.textContent = "";
+    wordDisplay.classList.remove("show");
+  }, 5000);
+}
+
+getWordBtn.addEventListener("click", () => {
+  if (currentPlayer < playerWords.length) {
+    showWord(`Ваше слово: ${playerWords[currentPlayer]}`);
+    currentPlayer++;
+    if (currentPlayer === playerWords.length) {
+      getWordBtn.disabled = true;
     }
-  
-    if (currentIndex < words.length) {
-      showWord(`Ваше слово: ${words[currentIndex]}`);
-      currentIndex++;
-    } else {
-      showWord("Все игроки получили слова!");
-      currentIndex = 0;
-    }
-  });
+  }
+});
+
+startGameBtn.addEventListener("click", () => {
+  const count = parseInt(playerCountInput.value);
+  if (!isNaN(count) && count >= 3 && count <= 20) {
+    totalPlayers = count;
+    prepareRound();
+    showWord("Раздаю слова...");
+  } else {
+    alert("Введите корректное количество игроков (3-20)");
+  }
+});
